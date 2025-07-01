@@ -1,0 +1,1065 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zain Khan | Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to right, #0f0f1a, #1a1a2e);
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      /* ===== Navbar ===== */
+      .navbar {
+        display: flex;
+        align-items: center;
+        background-color: #111122;
+        padding: 18px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      /* Logo stays on the left */
+      .logo {
+        font-size: 1.8rem;
+        color: #4fc3f7;
+        font-weight: bold;
+      }
+
+      /* Centered links (adjust margin-left to center visually) */
+      .center-links {
+        display: flex;
+        gap: 30px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Link style */
+      .center-links a {
+        text-decoration: none;
+        color: #ccc;
+        font-size: 1rem;
+        transition: 0.3s ease;
+      }
+
+      .center-links a:hover {
+        color: #fff;
+      }
+
+      /* ===== HERO SECTION ===== */
+      .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 20px;
+      }
+
+      .hero-container {
+        max-width: 1100px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-text {
+        max-width: 500px;
+      }
+
+      .hero-text h1 {
+        font-size: 3.2rem;
+        margin-bottom: 15px;
+        color: #ffffff;
+      }
+
+      .hero-text h3 {
+        font-size: 1.8rem;
+        color: #a48fff;
+        margin-bottom: 25px;
+      }
+
+      .hero-text p {
+        font-size: 1.2rem;
+        color: #cccccc;
+        line-height: 1.8;
+        margin-bottom: 35px;
+      }
+
+      .hero-text a {
+        font-size: 1.05rem;
+        padding: 14px 36px;
+        font-weight: 600;
+        border-radius: 8px;
+        background: linear-gradient(to right, #a855f7, #6366f1);
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .hero-text a:hover {
+        opacity: 0.9;
+      }
+
+      .hero-img img {
+        width: 400px;
+        height: 480px;
+        border-radius: 50% / 40%;
+        box-shadow: 0 0 25px rgba(169, 104, 255, 0.4);
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .hero-img img:hover {
+        transform: scale(1.03);
+      }
+
+      @media screen and (max-width: 768px) {
+        .hero-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 40px;
+        }
+
+        .hero-img img {
+          width: 220px;
+          height: 270px;
+        }
+      }
+
+      /* ===== SKILLS SECTION ===== */
+      .skills {
+        padding: 100px 20px 80px;
+        background-color: #0a0a1f;
+        text-align: center;
+      }
+
+      .skills-container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .skills h2 {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+
+      .skills p {
+        font-size: 1.2rem;
+        color: #cccccc;
+        margin-bottom: 60px;
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .skill-box {
+        border: 1px solid #4f8cff;
+        border-radius: 12px;
+        padding: 40px 30px;
+        width: 400px;
+        background-color: #121232;
+        color: #ffffff;
+        transition: transform 0.3s ease;
+        box-shadow: 0 0 20px rgba(79, 140, 255, 0.25);
+      }
+
+      .skill-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 25px rgba(79, 140, 255, 0.5);
+      }
+
+      .skill-box h3 {
+        margin-bottom: 30px;
+        color: #a48fff;
+        font-size: 1.6rem;
+      }
+
+      .tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .tool {
+        padding: 8px 14px;
+        background-color: #1f1f3a;
+        color: #ffffff;
+        border: 1px solid #4f8cff;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        box-shadow: 0 0 10px rgba(79, 140, 255, 0.1);
+      }
+
+      /* Center Programming box */
+      .skill-box.full-width {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 768px) {
+        .skills-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .skill-box {
+          width: 90%;
+        }
+      }
+
+      .experience {
+        padding: 80px 20px;
+        background-color: #0f0f1a;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .experience-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .experience h2 {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+
+      .experience p {
+        font-size: 1.2rem;
+        color: #cccccc;
+        margin-bottom: 50px;
+      }
+
+      .exp-card {
+        background-color: #121232;
+        border: 1px solid #4f8cff;
+        border-radius: 12px;
+        padding: 40px 30px;
+        box-shadow: 0 0 20px rgba(79, 140, 255, 0.25);
+        text-align: left;
+      }
+
+      .exp-card h3 {
+        color: #a48fff;
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+      }
+
+      .exp-card .company {
+        color: #88aaff;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .exp-desc p {
+        color: #dddddd;
+        line-height: 1.8;
+        margin-bottom: 25px;
+      }
+
+      .exp-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-chip {
+        background-color: #1f1f3a;
+        border: 1px solid #4f8cff;
+        color: #ffffff;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+      }
+
+      .projects {
+        padding: 100px 20px;
+        background-color: #0a0a1f;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .projects h2 {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+
+      .projects p {
+        font-size: 1.2rem;
+        color: #cccccc;
+        margin-bottom: 50px;
+      }
+
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background: none;
+        color: #4fc3f7;
+        border: 1px solid #4fc3f7;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background-color: #4fc3f7;
+        color: #0f0f1a;
+      }
+
+      .projects-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .project-card {
+        width: 340px;
+        background-color: #121232;
+        border: 1px solid #4f8cff;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(79, 140, 255, 0.2);
+        transition: all 0.4s ease;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        max-height: 500px;
+        cursor: pointer;
+      }
+
+      @media screen and (max-width: 992px) {
+        .project-card {
+          width: calc(50% - 30px); /* 2 per row */
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .project-card {
+          width: 100%; /* 1 per row */
+        }
+      }
+
+      .project-card.expanded {
+        max-height: 1000px;
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(79, 140, 255, 0.5);
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .project-body {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .project-body h3 {
+        font-size: 1.4rem;
+        color: #a48fff;
+        margin-bottom: 10px;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .project-tags span {
+        background-color: #1f1f3a;
+        border: 1px solid #4f8cff;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+      }
+
+      .project-body p {
+        font-size: 0.95rem;
+        color: #cccccc;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .project-body .full-description {
+        display: none;
+      }
+
+      .project-card.expanded .full-description {
+        display: block;
+      }
+
+      .project-card.expanded .short-description {
+        display: none;
+      }
+
+      .project-links {
+        display: none;
+        gap: 14px;
+        margin-top: auto;
+      }
+
+      .project-card.expanded .project-links {
+        display: flex;
+      }
+
+      .project-links a {
+        padding: 10px 14px;
+        background-color: #4fc3f7;
+        color: #0f0f1a;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .project-links a:hover {
+        background-color: #37b0e9;
+      }
+
+      @media screen and (max-width: 768px) {
+        .project-card {
+          width: 90%;
+        }
+      }
+
+      .education {
+        padding: 60px 20px;
+        background-color: #0a0a1f;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .education h2 {
+        font-size: 2.2rem;
+        margin-bottom: 6px;
+        color: #ffffff;
+      }
+
+      .education p {
+        font-size: 1rem;
+        color: #cccccc;
+        margin-bottom: 30px;
+      }
+
+      .education-boxes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .edu-card {
+        width: 90%;
+        max-width: 600px;
+        background-color: #121232;
+        border: 1px solid #4f8cff;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(79, 140, 255, 0.15);
+        padding: 12px 20px;
+        text-align: left;
+        transition: all 0.3s ease;
+      }
+
+      .edu-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0 14px rgba(79, 140, 255, 0.25);
+      }
+
+      .edu-card h3 {
+        font-size: 1.05rem;
+        color: #a48fff;
+        margin-bottom: 4px;
+      }
+
+      .edu-level {
+        font-size: 0.9rem;
+        color: #4fc3f7;
+        margin-bottom: 1px;
+      }
+
+      .edu-date {
+        font-size: 0.8rem;
+        color: #cccccc;
+        margin-bottom: 5px;
+      }
+
+      .edu-desc {
+        font-size: 0.8rem;
+        color: #dddddd;
+        line-height: 1.4;
+      }
+
+      .footer {
+        background-color: #111132;
+        padding: 30px 20px;
+        color: #cccccc;
+        text-align: center;
+        border-top: 1px solid #333;
+        margin-top: 60px;
+      }
+
+      .footer-content {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .footer-links {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: #4fc3f7;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-weight: 500;
+      }
+
+      .footer-links a:hover {
+        color: #ffffff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">🌀 Portfolio</div>
+      <div class="center-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+      </div>
+    </nav>
+
+    <!-- ===== HERO / ABOUT SECTION ===== -->
+    <section class="hero" id="about">
+      <div class="hero-container">
+        <div class="hero-text">
+          <h1>Hi, I am Zain Khan</h1>
+          <h3>I am a Machine Learning Developer</h3>
+          <p>
+            I’m a passionate Machine Learning developer with 2 years of
+            experience turning ideas into intelligent solutions. I believe in
+            learning by doing, staying consistent, and pushing my limits. Every
+            challenge is a chance to grow and do better.
+          </p>
+          <a
+            href="https://drive.google.com/file/d/1kWlWSHHclWT2vP3kzBk396NnyDZ_am2y/view?usp=sharing"
+            target="_blank"
+            >Check Resume</a
+          >
+        </div>
+        <div class="hero-img">
+          <img src="{% static 'images/zain.jpg' %}" alt="Maaz Khan" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section class="skills" id="skills">
+      <div class="skills-container">
+        <h2>Skills</h2>
+        <p>I have been working with these technologies for the past 2 years:</p>
+
+        <!-- === ROW 1: Programming Centered === -->
+        <div class="skills-grid" style="justify-content: center">
+          <div class="skill-box">
+            <h3>💻 Programming</h3>
+            <div class="tools">
+              <span class="tool">🐍 Python</span>
+              <span class="tool">🌐 JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- === ROW 2: ML + DL === -->
+        <div class="skills-grid">
+          <div class="skill-box">
+            <h3>🤖 Machine Learning</h3>
+            <div class="tools">
+              <span class="tool">🧮 NumPy</span>
+              <span class="tool">🧹 Pandas</span>
+              <span class="tool">📈 Scikit-learn</span>
+              <span class="tool">📊 Seaborn</span>
+              <span class="tool">📉 Matplotlib</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>🧠 Deep Learning</h3>
+            <div class="tools">
+              <span class="tool">🧱 Keras</span>
+              <span class="tool">🔬 TensorFlow</span>
+              <span class="tool">🧠 CNN</span>
+              <span class="tool">🔁 ANN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- === ROW 3: Web Dev + Chatbot === -->
+        <div class="skills-grid">
+          <div class="skill-box">
+            <h3>🌍 Web Development</h3>
+            <div class="tools">
+              <span class="tool">⚙️ Django</span>
+              <span class="tool">🖼 HTML</span>
+              <span class="tool">🎨 CSS</span>
+              <span class="tool">🌿 Git</span>
+              <span class="tool">🐱 GitHub</span>
+              <span class="tool">🔵 Bootstrap</span>
+              <span class="tool">🌐 Flask</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>💬 Chatbot Development</h3>
+            <div class="tools">
+              <span class="tool">🤖 Dialogflow</span>
+              <span class="tool">🧠 GPT-2</span>
+              <span class="tool">⚡ GPT-3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE SECTION ===== -->
+    <section class="experience" id="experience">
+      <div class="experience-container">
+        <h2>Experience</h2>
+        <p>My experience as an IT Engineer in different companies.</p>
+
+        <div class="exp-card">
+          <h3>💼 Machine Learning Intern</h3>
+          <p class="company">AiforMax — Dec 2023 - Jan 2025</p>
+
+          <div class="exp-desc">
+            <p>
+              Worked as part of a passionate team focused on delivering
+              AI-powered solutions. I contributed to model training, data
+              preprocessing, and deployment of ML systems. Collaborated closely
+              with web developers and backend engineers to integrate ML features
+              into full-stack applications. Gained valuable hands-on experience
+              in end-to-end ML pipelines.
+            </p>
+          </div>
+
+          <div class="exp-skills">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">HTML</span>
+            <span class="skill-chip">CSS</span>
+            <span class="skill-chip">Django</span>
+            <span class="skill-chip">Machine Learning</span>
+            <span class="skill-chip">Data Cleaning</span>
+            <span class="skill-chip">Model Training</span>
+            <span class="skill-chip">Model Deployment</span>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+
+      <div class="experience-container">
+        <div class="exp-card">
+          <h3>💼 Freelance AI/ML & Web Developer</h3>
+          <p class="company">Upwork — June 2024 to Nov 2024</p>
+
+          <div class="exp-desc">
+            <p>
+              Worked independently with clients to deliver complete AI and ML
+              web solutions. Designed, trained, and deployed models using
+              Scikit-learn and Keras. Developed full-stack applications with
+              Django and Flask, and built responsive frontend interfaces using
+              HTML, CSS, and JavaScript.
+            </p>
+          </div>
+
+          <div class="exp-skills">
+            <span class="skill-chip">Django</span>
+            <span class="skill-chip">Flask</span>
+            <span class="skill-chip">Scikit-learn</span>
+            <span class="skill-chip">Keras</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">HTML</span>
+            <span class="skill-chip">CSS</span>
+            <span class="skill-chip">Model Deployment</span>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+
+      <div class="experience-container">
+        <div class="exp-card">
+          <h3>💼 AI/ML Intern</h3>
+          <p class="company">Aug AI, Johar Town — Feb 2024 to May 2024</p>
+
+          <div class="exp-desc">
+            <p>
+              Assisted in developing ML models on structured datasets using
+              Random Forest and SVM. Focused on data preprocessing, feature
+              engineering, and model evaluation. Also contributed to deep
+              learning models built using TensorFlow and Keras in team-based
+              projects.
+            </p>
+          </div>
+
+          <div class="exp-skills">
+            <span class="skill-chip">Random Forest</span>
+            <span class="skill-chip">SVM</span>
+            <span class="skill-chip">Pandas</span>
+            <span class="skill-chip">Keras</span>
+            <span class="skill-chip">Feature Engineering</span>
+            <span class="skill-chip">TensorFlow</span>
+            <span class="skill-chip">Keras</span>
+            <span class="skill-chip">Model Evaluation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="projects" id="projects">
+      <div class="projects-container">
+        <h2>Projects</h2>
+        <p>Here are some of the best projects I’ve worked on recently.</p>
+
+        <!-- ⭐ Featured Project (Center Aligned) -->
+        <div
+          class="projects-grid"
+          style="justify-content: center; margin-bottom: 40px"
+        >
+          <div class="project-card" data-category="dl">
+            <img
+              src="{% static 'images/smart.jpeg' %}"
+              alt="Emotion Detection"
+            />
+            <div class="project-body">
+              <h3>🧠 SmartVision – Emotion Detection</h3>
+              <div class="project-tags">
+                <span>TensorFlow</span><span>OpenCV</span><span>CNN</span>
+              </div>
+              <p class="short-description">
+                Detects facial emotions in real-time.
+              </p>
+              <p class="full-description">
+                Built a CNN-based system to recognize facial emotions like
+                happy, sad, or angry in real-time. Integrated OpenCV for webcam
+                input and deployed with a basic Django frontend.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🔧 All Other Projects -->
+        <div class="projects-grid">
+          <!-- 🎯 SmartVision – Object Detection -->
+          <div class="project-card" data-category="dl">
+            <img
+              src="{% static 'images/ChatGPT.png' %}"
+              alt="Object Detection"
+            />
+            <div class="project-body">
+              <h3>🎯 SmartVision – Object Detection</h3>
+              <div class="project-tags">
+                <span>YOLO</span><span>OpenCV</span><span>Real-Time</span>
+              </div>
+              <p class="short-description">
+                Detects and labels objects using webcam feed.
+              </p>
+              <p class="full-description">
+                Implemented real-time object detection using a pre-trained YOLO
+                model. System detects multiple objects like people, cars, and
+                laptops with bounding boxes. Designed simple web-based preview
+                using OpenCV + HTML.
+              </p>
+            </div>
+          </div>
+
+          <!-- 🤖 UniBot Pro – Admission Chatbot -->
+          <div class="project-card" data-category="chatbot">
+            <img
+              src="{% static 'images/unibot.jpeg' %}"
+              alt="Admission Chatbot"
+            />
+            <div class="project-body">
+              <h3>🤖 UniBot Pro – Admission Chatbot</h3>
+              <div class="project-tags">
+                <span>Dialogflow</span><span>Django</span><span>NLP</span>
+              </div>
+              <p class="short-description">
+                Handles admission queries via chatbot.
+              </p>
+              <p class="full-description">
+                Created a Dialogflow-based chatbot for university admission
+                systems. Handled 10+ intents like eligibility, fee structure,
+                and deadlines. Integrated with Django for backend logging and
+                response control.
+              </p>
+            </div>
+          </div>
+
+          <!-- 🎬 Netflix Movie Recommender -->
+          <div class="project-card" data-category="ml">
+            <img
+              src="{% static 'images/netflix.jpeg' %}"
+              alt="Netflix Recommender"
+            />
+            <div class="project-body">
+              <h3>🎬 Netflix Movie Recommender</h3>
+              <div class="project-tags">
+                <span>Scikit-Learn</span><span>Content-Based</span
+                ><span>ML</span>
+              </div>
+              <p class="short-description">
+                Recommends movies based on user preferences.
+              </p>
+              <p class="full-description">
+                Designed a content-based movie recommendation system that
+                analyzes user preferences to suggest similar titles. Frontend
+                mimics Netflix-style layout with recommended movie cards.
+              </p>
+            </div>
+          </div>
+
+          <!-- 🎵 Spotify Genre Predictor -->
+          <div class="project-card" data-category="ml">
+            <img
+              src="{% static 'images/sportify.jpeg' %}"
+              alt="Spotify Genre Predictor"
+            />
+            <div class="project-body">
+              <h3>🎵 Spotify Genre Predictor</h3>
+              <div class="project-tags">
+                <span>TensorFlow</span><span>Python</span><span>ML</span>
+              </div>
+              <p class="short-description">
+                Predicts music genre based on audio features.
+              </p>
+              <p class="full-description">
+                Built a machine learning model that predicts a song’s genre
+                using features like tempo, energy, and valence. Designed a
+                simple dark-themed UI with a prediction interface.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% comment %} Education {% endcomment %}
+
+    <section class="education" id="education">
+      <div class="education-container">
+        <h2>Education</h2>
+        <p>A glimpse of my academic background.</p>
+
+        <div class="education-boxes">
+          {% comment %} university {% endcomment %}
+          <div class="edu-card">
+            <h3>Bahria University, Lahore</h3>
+            <p class="edu-level">BS in Computer Science</p>
+            <p class="edu-date">2022 – Present</p>
+            <p class="edu-desc">
+              Pursuing BSCS with a current CGPA above 3.4, focusing on
+              Artificial Intelligence, Machine Learning, and Full Stack
+              Development.
+            </p>
+          </div>
+
+          <!-- 🎓 College -->
+          <div class="edu-card">
+            <h3>Forman Christian College, Lahore</h3>
+            <p class="edu-level">Higher Secondary Education</p>
+            <p class="edu-date">2020 - 2022</p>
+            <p class="edu-desc">
+              I completed my F.Sc. (Pre-Engineering) with a strong foundation in
+              Computer & Mathematics at Forman Christian College, Lahore.
+            </p>
+          </div>
+
+          <!-- 🏫 School -->
+          <div class="edu-card">
+            <h3>Standard Grammar School, Lahore</h3>
+            <p class="edu-level">Matriculation</p>
+            <p class="edu-date">2020</p>
+            <p class="edu-desc">
+              I completed my class 10 education in Biology at Standard Grammar
+              School, Lahore.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 Zain Khan. All rights reserved.</p>
+
+      </div>
+    </footer>
+  </body>
+
+  <script>
+    // ========= Modal Logic ==========
+    const modal = document.createElement("div");
+    modal.className = "project-modal";
+    Object.assign(modal.style, {
+      position: "fixed",
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      display: "none",
+      zIndex: "9999",
+      justifyContent: "center",
+      alignItems: "center",
+      overflowY: "auto",
+      padding: "20px",
+    });
+
+    modal.innerHTML = `
+    <div style="
+      background-color: #1a1a2e;
+      padding: 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 700px;
+      color: #fff;
+      position: relative;
+      box-shadow: 0 0 20px rgba(79,140,255,0.5);
+      max-height: 90vh;
+      overflow-y: auto;
+    ">
+      <span id="closeModal" style="
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #fff;
+      ">&times;</span>
+
+      <h3 id="modal-title" style="font-size: 2rem; color: #a48fff;"></h3>
+      <img id="modal-img" src="" alt="Project Screenshot" style="width: 100%; height: auto; border-radius: 10px; margin: 20px 0;">
+
+      <div id="modal-tags" style="margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px;"></div>
+
+      <p id="modal-description" style="line-height: 1.8; font-size: 1rem;"></p>
+    </div>
+  `;
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector("#modal-img");
+    const modalTitle = modal.querySelector("#modal-title");
+    const modalDesc = modal.querySelector("#modal-description");
+    const modalTags = modal.querySelector("#modal-tags");
+    const closeModal = modal.querySelector("#closeModal");
+
+    document.querySelectorAll(".project-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const img = card.querySelector("img").src;
+        const title = card.querySelector("h3").textContent;
+        const desc =
+          card.querySelector(".full-description")?.textContent ||
+          card.querySelector("p").textContent;
+        const tags = Array.from(
+          card.querySelectorAll(".project-tags span")
+        ).map((tag) => tag.textContent);
+
+        modalImg.src = img;
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+        modalTags.innerHTML = tags
+          .map(
+            (tag) => `<span style="
+      background-color: #1f1f3a;
+      border: 1px solid #4f8cff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    ">${tag}</span>`
+          )
+          .join("");
+
+        modal.style.display = "flex";
+      });
+    });
+
+    closeModal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // ========= Filter Buttons ==========
+    const buttons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".project-card");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.getAttribute("data-category");
+
+        cards.forEach((card) => {
+          const category = card.getAttribute("data-category");
+          if (filter === "all" || category === filter) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</html>
